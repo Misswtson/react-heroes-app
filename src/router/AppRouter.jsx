@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate} from 'react-router-dom';
-import { } from '../'
+import { Navbar } from '../ui';
 import { LoginPage } from '../auth/components/hooks/pages/LoginPage';
 import { Marvel } from '../heroes/pages/Marvel';
 import { Dc } from '../heroes/pages/Dc';
@@ -8,9 +8,9 @@ import { Dc } from '../heroes/pages/Dc';
 export const AppRouter = () => {
   return (
     <>
-<Routes>
 
- <Navbar/>
+<Navbar/>
+<Routes>
 
     <Route path="marvel" element={<Marvel/>}/>
     <Route path="dc" element={<Dc/>}/>
