@@ -1,21 +1,16 @@
-import { Routes, Route, Navigate} from 'react-router-dom';
-import { Navbar } from '../ui';
+import { Routes, Route } from 'react-router-dom';
 import { LoginPage } from '../auth/components/hooks/pages/LoginPage';
-import { Marvel } from '../heroes/pages/Marvel';
-import { Dc } from '../heroes/pages/Dc';
+import { HeroesRoutes } from '../heroes/routes/HeroesRoutes';
+
 
 
 export const AppRouter = () => {
   return (
     <>
-
-<Navbar/>
 <Routes>
-
-    <Route path="marvel" element={<Marvel/>}/>
-    <Route path="dc" element={<Dc/>}/>
     <Route path="login" element={<LoginPage/>}/>
-    <Route path="/" element={<Navigate to='/Marvel'/>}/>
+    <Route path="/*" element={<HeroesRoutes/>}/>
+
 </Routes>
     </>
     
