@@ -1,11 +1,15 @@
 import { Navigate, useParams } from "react-router-dom"
 import { getHeroById } from "../helpers/getHeroById";
+import { useMemo } from "react";
 
 
 export const Hero = () => {
 
 const { id } = useParams();
-const hero = getHeroById(id);
+const hero = useMemo (() => getHeroById(id), [id]); 
+// getHeroById is a function that retrieves a hero object by its id
+
+// If the hero is not found, redirect to the Marvel page
 
 if (!hero ) {
   return <Navigate to='/Marvel'/>
