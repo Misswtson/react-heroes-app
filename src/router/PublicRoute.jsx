@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../auth/components/hooks/pages/context/AuthContext';
-
+import PropTypes from 'prop-types';
 
 export const PublicRoute = ({ children }) => {
 
@@ -9,5 +9,8 @@ export const PublicRoute = ({ children }) => {
 
     return (!logged)
         ? children
-        : <Navigate to="/Dc" />
+        : <Navigate to="/marvel" />
     }
+    PublicRoute.propTypes = {
+        children: PropTypes.node.isRequired,
+      };

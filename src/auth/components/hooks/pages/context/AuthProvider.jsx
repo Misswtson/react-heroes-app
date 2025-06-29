@@ -2,6 +2,7 @@ import { useReducer } from 'react';
 import { AuthContext } from './AuthContext';
 import { authReducer } from './authReducer';
 import { types } from '../types/types';
+import PropTypes from 'prop-types';
 
 
 const init = () => {
@@ -14,9 +15,9 @@ const init = () => {
 }
 
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children  }) => {
     
-  const [ authState, dispatch ] = useReducer( authReducer, {}, init );
+  const [ authState, dispatch ] = useReducer( authReducer,{}, init );
 
   const login = ( name = '' ) => {
 
@@ -36,14 +37,17 @@ export const AuthProvider = ({ children }) => {
 
 
   return (
-    <AuthContext.Provider value={{
-      ...authState,
-
-      // Methods
+    <AuthContext.Provider value={{...authState,
+// Methods
       login,
       logout,
     }}>
         { children }
     </AuthContext.Provider>
   );
+
 }
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

@@ -6,6 +6,13 @@ import { AuthContext } from '../../auth/components/hooks/pages/context/AuthConte
 export const Navbar = () => {
 
     const { user, logout } = useContext( AuthContext );
+    console.log(user);
+
+    // useContext(AuthContext) is used to access the AuthContext, which provides authentication-related data and functions.
+    // useNavigate() is a hook from react-router-dom that allows navigation programmatically.
+    // logout() is a function that logs out the user, typically clearing authentication tokens or user data.
+    // navigate('/login', { replace: true }) redirects the user to the login page after logging out, replacing the current entry in the history stack.
+    // This means that when the user clicks the logout button, they will be redirected to the login page without being able to go back to the previous page using the browser's back button.
     
 
     const navigate = useNavigate();
